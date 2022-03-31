@@ -81,7 +81,10 @@ public class SqlInjectionChallenge extends AssignmentEndpoint {
                 }
             } catch (SQLException e) {
                 attackResult = failed(this).output("Something went wrong").build();
+            }finally {
+                statement.close();
             }
+            
         }
         return attackResult;
     }
